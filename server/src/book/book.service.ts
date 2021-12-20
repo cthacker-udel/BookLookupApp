@@ -1,3 +1,4 @@
+import { BookDto } from './dto/BookDto';
 import { BookEntity } from './entities/book.entity';
 import { Injectable } from "@nestjs/common";
 import { getMongoManager, MongoEntityManager } from "typeorm";
@@ -8,6 +9,12 @@ export class BookService {
 
     private mongoManager: MongoEntityManager;
 
+    /*
+
+    GET REQUESTS
+
+    */
+
     async getBooks() {
         this.mongoManager = getMongoManager("mongo");
         try{ 
@@ -15,7 +22,7 @@ export class BookService {
         } catch (error) {
             throw new Error("No books in database");
         }
-    }
+    };
 
     async getBookFilter(lookupType: string, lookup: string) {
         this.mongoManager = getMongoManager("mongo");
@@ -59,6 +66,17 @@ export class BookService {
             throw new Error(`Lookup type : [${lookupType}] failed with query [${lookup}]`);
         }
 
+    };
+
+    /*
+
+    POST REQUESTS
+
+    */
+
+    async createBook(book: BookEntity) {
+        this.mongoManager = getMongoManager("mongo");
+        return await this.mongoManager.save(BookEntity, book);
     }
 
 }

@@ -1,4 +1,3 @@
-import { ShardingManager } from "discord.js";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -26,9 +25,13 @@ export class BookEntity {
     @Column({ default: "No Publisher"})
     private Publisher: string
 
-    constructor(newAuthor: string, newTitle: string) {
+    constructor(newAuthor: string, newTitle: string, newPublishDate: string, newIsbn: number, newSubject: string, newPublisher: string) {
         this.Author = newAuthor;
         this.Title = newTitle;
+        this.PublishDate = newPublishDate;
+        this.ISBN = newIsbn;
+        this.Subject = newSubject;
+        this.Publisher = newPublisher;
     };
 
     get author() {
