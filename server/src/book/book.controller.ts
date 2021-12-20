@@ -1,6 +1,6 @@
 import { BookEntity } from './entities/book.entity';
 import { BookService } from './book.service';
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 
 
 
@@ -14,5 +14,10 @@ export class BookController {
         console.log("getting all books");
         return this.bookService.getBooks();
     };
+
+    @Get("/author/:id")
+    getSpecificBook(@Param('id') id: string) {
+        return this.bookService.getBookFilter("author", id);
+    }
 
 };
