@@ -22,6 +22,11 @@ export class BookPostController {
                 createdBook.publisher
             )
         );
-    }
+    };
+
+    @Post("/bulkadd")
+    createBooks(@Body() createdBooks: BookDto[]) {
+        this.bookService.createBooks(createdBooks as BookEntity[]);
+    };
 
 }
