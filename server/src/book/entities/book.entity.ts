@@ -8,78 +8,78 @@ export class BookEntity {
     id: number
 
     @Column({default: "default author"})
-    private Author: string
+    private author: string
 
     @Column({default: "default title"})
-    private Title: string
+    private title: string
 
     @Column({default: "1/1/11"})
-    private PublishDate: string
+    private publishdate: string
 
     @Column({default: 0})
-    private ISBN: number
+    private isbn: number
 
     @Column({default: "No Subject"})
-    private Subject: string
+    private subject: string
 
     @Column({ default: "No Publisher"})
-    private Publisher: string
+    private publisher: string
 
     constructor(newAuthor: string, newTitle: string, newPublishDate: string, newIsbn: number, newSubject: string, newPublisher: string) {
-        this.Author = newAuthor;
-        this.Title = newTitle;
-        this.PublishDate = newPublishDate;
-        this.ISBN = newIsbn;
-        this.Subject = newSubject;
-        this.Publisher = newPublisher;
+        this.author = newAuthor;
+        this.title = newTitle;
+        this.publishdate = newPublishDate;
+        this.isbn = newIsbn;
+        this.subject = newSubject;
+        this.publisher = newPublisher;
     };
 
-    get author() {
-        return this.Author;
+    get getAuthor() {
+        return this.author;
     };
 
-    get title() {
-        return this.Title;
+    get getTitle() {
+        return this.title;
     };
 
     get publishDate() {
-        return this.PublishDate;
+        return this.publishdate;
     };
 
-    get isbn() {
-        return this.ISBN;
+    get getIsbn() {
+        return this.isbn;
     };
 
-    get subject() {
-        return this.Subject;
+    get getSubject() {
+        return this.subject;
     };
 
-    get publisher() {
-        return this.Publisher;
+    get getPublisher() {
+        return this.publisher;
     };
 
-    set author(newAuthor) {
-        this.Author = newAuthor;
+    set setAuthor(newAuthor) {
+        this.author = newAuthor;
     };
 
-    set title(newTitle) {
-        this.Title = newTitle;
+    set setTitle(newTitle) {
+        this.title = newTitle;
     };
 
-    set publishDate(newPublishDate) {
-        this.PublishDate = newPublishDate;
+    set setPublishDate(newPublishDate) {
+        this.publishdate = newPublishDate;
     };
 
-    set isbn(newISBN) {
-        this.ISBN = newISBN;
+    set setIsbn(newISBN) {
+        this.isbn = newISBN;
     };
 
-    set subject(newSubject) {
-        this.Subject = newSubject;
+    set setSubject(newSubject) {
+        this.subject = newSubject;
     };
 
-    set publisher(newPublisher) {
-        this.Publisher = newPublisher;
+    set setPublisher(newPublisher) {
+        this.publisher = newPublisher;
     };
 
 };
