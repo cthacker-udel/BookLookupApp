@@ -40,7 +40,7 @@ export class BookService {
                 }
                 case "publishdate": {
                     return await this.mongoManager.find(BookEntity, {
-                        publishDate: lookup
+                        publishdate: lookup
                     });
                 }
                 case "isbn": {
