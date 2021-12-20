@@ -5,7 +5,7 @@ import { Controller, Get, Param } from "@nestjs/common";
 
 
 @Controller('book')
-export class BookController {
+export class BookGetController {
 
     constructor(private readonly bookService: BookService){}
 
