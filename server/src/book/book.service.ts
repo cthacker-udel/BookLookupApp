@@ -1,12 +1,16 @@
+import { BookEntity } from './entities/book.entity';
 import { Injectable } from "@nestjs/common";
+import { getMongoManager, MongoEntityManager } from "typeorm";
 
 
 @Injectable()
 export class BookService {
 
+    private mongoManager: MongoEntityManager;
 
     async getBooks() {
-        return await new Promise(() => console.log("found books")).then((result) => console.log("result"));
+        this.mongoManager = getMongoManager("mongo");
+        return await this.mongoManager.find(BookEntity);
     }
 
 

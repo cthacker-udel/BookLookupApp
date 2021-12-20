@@ -11,7 +11,9 @@ async function bootstrap() {
     app.use(cors());
 
     const connection = await createConnection(
-        {...MongoConfiguration as ConnectionOptions}
+        {
+            ...MongoConfiguration as ConnectionOptions,
+        }
     );
 
     await app.listen(3005);

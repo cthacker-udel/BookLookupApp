@@ -1,3 +1,4 @@
+import { BookEntity } from './entities/book.entity';
 import { BookService } from './book.service';
 import { Controller, Get } from "@nestjs/common";
 
@@ -9,7 +10,7 @@ export class BookController {
     constructor(private readonly bookService: BookService){}
 
     @Get('all')
-    getAllBooks(): Promise<void> {
+    getAllBooks(): Promise<BookEntity[]> {
         return this.bookService.getBooks();
     };
 
