@@ -1,0 +1,21 @@
+{
+  "name": "bookapp",
+  "version": "1.0.0",
+  "description": "This application uses React as the front end, located in the **client** folder, and uses __NestJS__ as the backend with additional integration from __Typeorm__.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others-on-fail \"cd server && npm run start\" \"cd client && npm run start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cthacker-udel/BookLookupApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cthacker-udel/BookLookupApp/issues"
+  },
+  "homepage": "https://github.com/cthacker-udel/BookLookupApp#readme"
+}
