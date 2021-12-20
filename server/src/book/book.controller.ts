@@ -9,8 +9,8 @@ export class BookController {
     constructor(private readonly bookService: BookService){}
 
     @Get('all')
-    getAllBooks() {
-        return this.bookService;
+    getAllBooks(): Promise<void> {
+        return this.bookService.getBooks();
     };
 
 };
