@@ -25,4 +25,24 @@ export class BookController {
         return this.bookService.getBookFilter("title", id);
     };
 
+    @Get("/publishdate/:id")
+    getSpecificBookPublishDate(@Param("id") id: string) {
+        return this.bookService.getBookFilter("publishdate", id);
+    };
+
+    @Get("/isbn/:id")
+    getSpecificBookISBN(@Param("id") id: string) {
+        return this.bookService.getBookFilter("isbn", id);
+    };
+
+    @Get("/subject/:id")
+    getSpecificBookSubject(@Param("id") id: string) {
+        return this.bookService.getBookFilter("subject", id);
+    };
+
+    @Get("/publisher/:id")
+    getSpecificBookPublisher(@Param("id") id: string) {
+        return this.bookService.getBookFilter("publisher", id);
+    };
+
 };
