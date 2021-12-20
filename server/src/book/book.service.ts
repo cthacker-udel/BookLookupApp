@@ -24,7 +24,32 @@ export class BookService {
                 case "author": {
                     return await this.mongoManager.find(BookEntity, {
                         author: lookup
-                    })
+                    });
+                }
+                case "title": {
+                    return await this.mongoManager.find(BookEntity, {
+                        title: lookup
+                    });
+                }
+                case "publishdate": {
+                    return await this.mongoManager.find(BookEntity, {
+                        publishDate: lookup
+                    });
+                }
+                case "isbn": {
+                    return await this.mongoManager.find(BookEntity, {
+                        isbn: parseInt(lookup, 10)
+                    });
+                }
+                case "subject": {
+                    return await this.mongoManager.find(BookEntity, {
+                        subject: lookup
+                    });
+                }
+                case "publisher": {
+                    return await this.mongoManager.find(BookEntity, {
+                        publisher: lookup
+                    });
                 }
                 default: {
                     throw new Error(`ERROR 404: Lookup operation invalid`);

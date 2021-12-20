@@ -32,19 +32,19 @@ export class BookEntity {
     };
 
     get author() {
-        return this.author;
+        return this.Author;
     };
 
     get title() {
-        return this.title;
+        return this.Title;
     };
 
     get publishDate() {
-        return this.publishDate;
+        return this.PublishDate;
     };
 
     get isbn() {
-        return this.isbn;
+        return this.ISBN;
     };
 
     get subject() {
@@ -64,7 +64,7 @@ export class BookEntity {
     };
 
     set publishDate(newPublishDate) {
-        this.publishDate = newPublishDate;
+        this.PublishDate = newPublishDate;
     };
 
     set isbn(newISBN) {
@@ -72,7 +72,7 @@ export class BookEntity {
     };
 
     set subject(newSubject) {
-        this.subject = newSubject;
+        this.Subject = newSubject;
     };
 
     set publisher(newPublisher) {
