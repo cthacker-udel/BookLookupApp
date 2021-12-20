@@ -16,8 +16,13 @@ export class BookController {
     };
 
     @Get("/author/:id")
-    getSpecificBook(@Param('id') id: string) {
+    getSpecificBookAuthor(@Param('id') id: string) {
         return this.bookService.getBookFilter("author", id);
-    }
+    };
+
+    @Get("/title/:id")
+    getSpecificBookTitle(@Param("id") id: string) {
+        return this.bookService.getBookFilter("title", id);
+    };
 
 };
