@@ -11,6 +11,7 @@ export class BookController {
 
     @Get('all')
     getAllBooks(): Promise<BookEntity[]> {
+        console.log("getting all books");
         return this.bookService.getBooks();
     };
 

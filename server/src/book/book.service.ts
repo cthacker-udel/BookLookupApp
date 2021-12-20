@@ -10,7 +10,11 @@ export class BookService {
 
     async getBooks() {
         this.mongoManager = getMongoManager("mongo");
-        return await this.mongoManager.find(BookEntity);
+        try{ 
+            return await this.mongoManager.find(BookEntity);
+        } catch (error) {
+            throw new Error("No books in database");
+        }
     }
 
 

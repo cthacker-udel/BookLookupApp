@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import MongoConfiguration from "../config/mongo/mongo.config";
-import cors from "cors";
+const cors = require("cors");
 import { ConnectionOptions, createConnection } from 'typeorm';
 
 async function bootstrap() {
