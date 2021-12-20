@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/cthacker-udel/BookLookupApp/issues"
   },
-  "homepage": "https://github.com/cthacker-udel/BookLookupApp#readme"
+  "homepage": "https://github.com/cthacker-udel/BookLookupApp#readme",
+  "dependencies": {
+    "concurrently": "^6.5.1"
+  }
 }
