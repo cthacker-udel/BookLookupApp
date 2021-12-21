@@ -14,32 +14,32 @@ export class BookGetController {
     };
 
     @Get("/author/:id")
-    getSpecificBookAuthor(@Param('id') id: string) {
+    getSpecificBookAuthor(@Param('id') id: string): Promise<BookEntity[]> {
         return this.bookService.getBookFilter("author", id);
     };
 
     @Get("/title/:id")
-    getSpecificBookTitle(@Param("id") id: string) {
+    getSpecificBookTitle(@Param("id") id: string): Promise<BookEntity[]> {
         return this.bookService.getBookFilter("title", id);
     };
 
     @Get("/publishdate/:id")
-    getSpecificBookPublishDate(@Param("id") id: string) {
+    getSpecificBookPublishDate(@Param("id") id: string): Promise<BookEntity[]> {
         return this.bookService.getBookFilter("publishdate", id);
     };
 
     @Get("/isbn/:id")
-    getSpecificBookISBN(@Param("id") id: string) {
+    getSpecificBookISBN(@Param("id") id: string): Promise<BookEntity[]> {
         return this.bookService.getBookFilter("isbn", id);
     };
 
     @Get("/subject/:id")
-    getSpecificBookSubject(@Param("id") id: string) {
+    getSpecificBookSubject(@Param("id") id: string): Promise<BookEntity[]> {
         return this.bookService.getBookFilter("subject", id);
     };
 
     @Get("/publisher/:id")
-    getSpecificBookPublisher(@Param("id") id: string) {
+    getSpecificBookPublisher(@Param("id") id: string): Promise<BookEntity[]> {
         return this.bookService.getBookFilter("publisher", id);
     };
 
