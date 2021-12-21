@@ -82,6 +82,26 @@ export class BookService {
     async createBooks(books: BookEntity[]) {
         this.mongoManager = getMongoManager("mongo");
         return await this.mongoManager.save(BookEntity, books);
+    };
+
+    /*
+
+    PUT REQUESTS
+
+    */
+
+    async updateBookByAuthor(author: string, book: BookEntity) {
+        this.mongoManager = getMongoManager("mongo");
+        this.mongoManager.update(BookEntity, {
+            author: author
+        }, book);
     }
+
+    async updateBookByTitle(title: string, book: BookEntity) {
+        this.mongoManager = getMongoManager("mongo");
+        this.mongoManager.update(BookEntity, {
+            title: title
+        }, book);
+    };
 
 }
