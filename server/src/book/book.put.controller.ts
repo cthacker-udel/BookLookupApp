@@ -21,4 +21,9 @@ export class BookPutController {
         return await this.bookService.updateBookByTitle(id, bookDto as BookEntity);
     };
 
+    @Put("isbn/:id")
+    async updateBookFromISBN(@Param('id') id: string, @Body() bookDto: BookDto) {
+        return await this.bookService.updateBookByISBN(id, bookDto as BookEntity);
+    };
+
 };

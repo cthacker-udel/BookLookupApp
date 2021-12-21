@@ -104,4 +104,11 @@ export class BookService {
         }, book);
     };
 
+    async updateBookByISBN(isbn: string, book: BookEntity) {
+        this.mongoManager = getMongoManager("mongo");
+        this.mongoManager.update(BookEntity, {
+            isbn: parseInt(isbn, 10)
+        }, book);
+    };
+
 }
