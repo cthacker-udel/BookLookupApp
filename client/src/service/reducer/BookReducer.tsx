@@ -17,5 +17,4 @@ export const BookReducer = (state: State, action: BookDispatchAction) => {
 
     }
 
-
 }

@@ -32,7 +32,6 @@ export const AddBookPanel = () => {
             }}});
             navigate('/book/book-table');
         }
-
     }
 
     return(
