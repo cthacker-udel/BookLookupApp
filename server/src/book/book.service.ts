@@ -1,7 +1,7 @@
 import { BookDto } from './dto/BookDto';
 import { BookEntity } from './entities/book.entity';
 import { Injectable } from "@nestjs/common";
-import { getMongoManager, MongoEntityManager } from "typeorm";
+import { DeleteResult, getMongoManager, MongoEntityManager, UpdateResult } from "typeorm";
 
 
 @Injectable()
@@ -90,25 +90,38 @@ export class BookService {
 
     */
 
-    async updateBookByAuthor(author: string, book: BookEntity) {
+    async updateBookByAuthor(author: string, book: BookEntity): Promise<UpdateResult> {
         this.mongoManager = getMongoManager("mongo");
-        this.mongoManager.update(BookEntity, {
+        return await this.mongoManager.update(BookEntity, {
             author: author
         }, book);
     }
 
-    async updateBookByTitle(title: string, book: BookEntity) {
+    async updateBookByTitle(title: string, book: BookEntity): Promise<UpdateResult> {
         this.mongoManager = getMongoManager("mongo");
-        this.mongoManager.update(BookEntity, {
+        return await this.mongoManager.update(BookEntity, {
             title: title
         }, book);
     };
 
-    async updateBookByISBN(isbn: string, book: BookEntity) {
+    async updateBookByISBN(isbn: string, book: BookEntity): Promise<UpdateResult> {
         this.mongoManager = getMongoManager("mongo");
-        this.mongoManager.update(BookEntity, {
+        return await this.mongoManager.update(BookEntity, {
             isbn: parseInt(isbn, 10)
         }, book);
     };
+
+    /*
+
+    DELETE REQUESTS
+
+    */
+
+    async deleteBookByAuthor(author: string): Promise<DeleteResult> {
+        this.mongoManager = getMongoManager("mongo");
+        return await this.mongoManager.delete(BookEntity, {
+            author: author
+        });
+    }
 
 }
