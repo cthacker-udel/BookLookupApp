@@ -1,11 +1,12 @@
 import React from "react";
-import { Col, Container, Row, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { UseStateContext } from "../../service/context.users/UseStateContext";
-import { Outlet } from "react-router-dom";
 
 export const BookTablePanel = (): JSX.Element => {
     
     const { state } = UseStateContext();
+
+    console.log("state = ", state);
 
     return(
         <Table>
@@ -32,6 +33,38 @@ export const BookTablePanel = (): JSX.Element => {
                     </th>
                 </tr>
             </thead>
+            <tbody>
+
+                {
+                    state.books.map((eachBook) => {
+
+                        return(
+                            <tr>
+                                <td>
+                                    {eachBook.author}
+                                </td>
+                                <td>
+                                    {eachBook.title}
+                                </td>
+                                <td>
+                                    {eachBook.publishDate}
+                                </td>
+                                <td>
+                                    {eachBook.isbn}
+                                </td>
+                                <td>
+                                    {eachBook.subject}
+                                </td>
+                                <td>
+                                    {eachBook.publisher}
+                                </td>
+                            </tr>
+                        );
+
+                    })
+                }
+
+            </tbody>
 
         </Table>
     );

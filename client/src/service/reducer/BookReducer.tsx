@@ -6,6 +6,11 @@ export const BookReducer = (state: State, action: BookDispatchAction) => {
 
     switch (action.type) {
 
+        case "addBook": {
+            return produce(state, (draft) => {
+                draft.books = [...draft.books, action.payload.addedBook];
+            });
+        }
         default: {
             return state;
         }

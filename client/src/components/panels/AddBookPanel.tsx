@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { UseStateContext } from "../../service/context.users/UseStateContext";
+import { UseDispatchContext } from "../../service/context.users/UseDispatchContext";
+import { useNavigate } from "react-router-dom";
 
 
 export const AddBookPanel = () => {
+
+    const { state } = UseStateContext();
+    const { dispatch } = UseDispatchContext();
 
     const [author, setAuthor] = useState<string>('');
     const [title, setTitle] = useState<string>('');
@@ -10,6 +16,26 @@ export const AddBookPanel = () => {
     const [isbn, setIsbn] = useState<number>(0);
     const [subject, setSubject] = useState<string>('');
     const [publisher, setPublisher] = useState<string>('');
+
+    let navigate = useNavigate();
+
+    const addBookHandler = () => {
+
+        if (author !== "" && title !== "" && publishDate !== "" && isbn !== 0 && subject !== "" && publisher !== "") {
+            console.log("adding book with author = ", author);
+            dispatch({type: "addBook", payload: { ...state, addedBook: {
+                author: author,
+                title: title,
+                publishDate: publishDate,
+                isbn: isbn,
+                subject: subject,
+                publisher: publisher
+            }}});
+            console.log("state after adding is : ", state);
+            navigate('/book/book-table');
+        }
+
+    }
 
     return(
         <>
@@ -140,7 +166,7 @@ export const AddBookPanel = () => {
             </Row>
             <Row style={{ textAlign: "center" }}>
                 <Col>
-                    <Button variant="outline-primary">
+                    <Button variant="outline-primary" onClick={() => addBookHandler()}>
                         Add Book
                     </Button>
                 </Col>
