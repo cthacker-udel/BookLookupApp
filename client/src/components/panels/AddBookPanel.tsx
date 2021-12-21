@@ -22,7 +22,6 @@ export const AddBookPanel = () => {
     const addBookHandler = () => {
 
         if (author !== "" && title !== "" && publishDate !== "" && isbn !== 0 && subject !== "" && publisher !== "") {
-            console.log("adding book with author = ", author);
             dispatch({type: "addBook", payload: { ...state, addedBook: {
                 author: author,
                 title: title,
@@ -31,7 +30,6 @@ export const AddBookPanel = () => {
                 subject: subject,
                 publisher: publisher
             }}});
-            console.log("state after adding is : ", state);
             navigate('/book/book-table');
         }
 
